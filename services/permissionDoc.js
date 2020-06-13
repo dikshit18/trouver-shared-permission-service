@@ -15,6 +15,7 @@ const getPermissionDocument = async (req, res) => {
       }
     };
     const permissionSets = await dynamoDb.query(params);
+    //Checking valid sets
     if (permissionSets.Items.length) {
       const response = successCodes['permissionSetFetchSuccess'];
       return res.status(response.statusCode).send({
