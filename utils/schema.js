@@ -5,19 +5,20 @@ const schema = (() => {
   return {
     associatePermission: Joi.object()
       .keys({
-        identityId: Joi.string()
-          .email()
-          .required(),
-        permissionSet: Joi.array().required()
+        identityId: JoiGuidV4.required(),
+        permissionSets: Joi.array().required()
       })
       .unknown(false),
 
     disAssociatePermission: Joi.object()
       .keys({
-        identityId: Joi.string()
-          .email()
-          .required(),
-        permissionSet: Joi.array().required()
+        identityId: JoiGuidV4.required(),
+        permissionSets: Joi.array().required()
+      })
+      .unknown(false),
+    fetchPermissionDoc: Joi.object()
+      .keys({
+        identityId: JoiGuidV4.required()
       })
       .unknown(false)
   };

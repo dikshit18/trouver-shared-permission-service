@@ -18,9 +18,8 @@ const fetchAllPermissions = async (req, res) => {
         permissionSets: permissionSets.Items
       });
     } else {
-      return res.status(response.statusCode).send({
-        statusCode: response.statusCode,
-        code: response.code,
+      return res.status(200).send({
+        statusCode: 200,
         permissionSets: []
       });
     }

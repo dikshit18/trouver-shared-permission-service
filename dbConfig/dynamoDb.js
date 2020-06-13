@@ -79,10 +79,10 @@ const dynamoDb = (() => {
       return new Promise((res, rej) => {
         documentClient.scan(params, (err, data) => {
           if (err) {
-            console.log('Error while deleting item... ', err);
+            console.log('Error while scanning item... ', err);
             rej(err);
           } else {
-            console.log('Succesfully deleted item... ', data);
+            console.log('Succesfully scanned item... ', data);
             res(data);
           }
         });

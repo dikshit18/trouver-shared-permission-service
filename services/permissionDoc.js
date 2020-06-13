@@ -5,11 +5,14 @@ const {errorCodes, successCodes} = require('../utils/responseCodes');
 const {schema} = require('../utils/schema');
 const getPermissionDocument = async (req, res) => {
   try {
-    await validateSchema(req.body, schema.associatePermission);
+    await validateSchema(req.body, schema.fetchPermissionDoc);
     const {identityId: sub} = req.body;
     const params = {
       TableName: process.env.PERMISSION_SETS_ASSOCIATION_TABLE,
-      KeyConditionExpression: 'sub = :sub',
+      KeyConditionExpression: '#subIdentity = :sub',
+      ExpressionAttributeNames: {
+        '#subIdentity': 'sub'
+      },
       ExpressionAttributeValues: {
         ':sub': sub
       }

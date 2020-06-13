@@ -1,6 +1,5 @@
 require('dotenv').config();
 const {dynamoDb} = require('../dbConfig/dynamoDb');
-const {cognito} = require('../cognitoConfig/cognito');
 const {validateSchema} = require('../utils/validator');
 const {errorCodes, successCodes} = require('../utils/responseCodes');
 const {schema} = require('../utils/schema');
