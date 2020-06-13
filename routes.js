@@ -1,0 +1,12 @@
+const routes = require('express').Router();
+const {signUp} = require('./services/associatePermission');
+const {logIn} = require('./services/login');
+const {sessionValidity} = require('./services/sessionValidity');
+const {changePassword} = require('./services/changePassword');
+const {details} = require('./services/details');
+const {logout} = require('./services/logout');
+routes.get('/admin/permission/permission-document-all', signUp);
+routes.get('/admin/permission/permission/all', signUp);
+routes.post('/admin/permission/associate', logIn);
+routes.get('/admin/permission/disassociate', sessionValidity);
+module.exports = routes;
